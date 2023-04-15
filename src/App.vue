@@ -1,9 +1,7 @@
 <template>
   <div id="app" class="w3-container w3-mobile">
     <div class="w3-right">
-      <router-link to="/settings">
-        <i class="material-icons w3-large">settings</i>
-      </router-link>
+      <i class="w3-xxxlarge ai-gear settings" @click="goToSettings"></i>
     </div>
     <router-view></router-view>
   </div>
@@ -12,11 +10,22 @@
 <script>
 export default {
   name: "App",
+  methods: {
+    // Add this method to navigate to the settings page
+    goToSettings() {
+      this.$router.push("/settings");
+    },
+  },
 };
 </script>
 
 <style>
-body {
-  font-family: "Roboto", sans-serif;
+.settings {
+  text-decoration: none;
+}
+
+.settings:active {
+  color: cadetblue;
+  background: none;
 }
 </style>
