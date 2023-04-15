@@ -6,14 +6,25 @@
       <input class="w3-input w3-border" v-model="score" type="number" placeholder="Score" />
       <button class="w3-btn w3-block w3-blue">Add Score</button>
     </form>
+    <div class="w3-section">
+      <label>Increment Points By:</label>
+      <input class="w3-input w3-border" v-model.number="incrementBy" type="number" />
+        <!-- @input="updateIncrementPointsBy" /> -->
+    </div>
     <table class="w3-table-all w3-centered">
       <tr>
         <th>Player Name</th>
         <th>Score</th>
+        <th>Action</th>
       </tr>
       <tr v-for="s in scores" :key="s.id">
         <td>{{ s.playerName }}</td>
         <td>{{ s.score }}</td>
+        <td>
+          <button class="w3-btn w3-green" @click="incrementScore(s.id, incrementPointsBy)">
+            Increment Score
+          </button>
+        </td>
       </tr>
     </table>
   </div>
@@ -30,10 +41,23 @@ export default {
     };
   },
   computed: {
+    ...mapState("settings", ["incrementPointsBy"]),
     ...mapState(["scores"]),
+    incrementBy: {
+      get() {
+        return this.incrementPointsBy;
+      },
+      set(newVal) {
+        this.setIncrementPointsBy(newVal);  
+      },
+    }
   },
   methods: {
+    ...mapMutations("settings", ["setIncrementPointsBy"]),
     ...mapMutations(["addScore"]),
+    // updateIncrementPointsBy() {
+    //   this.setIncrementPointsBy(this.incrementPointsBy);
+    // },
     addScoreEntry() {
       if (!this.playerName || this.score === null) {
         return;
@@ -47,6 +71,12 @@ export default {
 
       this.playerName = "";
       this.score = null;
+    },
+    incrementScore(playerId) {
+      this.$store.commit("incrementScore", {
+        playerId,
+        incrementPointsBy: parseInt(this.incrementPointsBy),
+      });
     },
   },
 };

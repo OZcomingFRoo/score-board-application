@@ -1,19 +1,28 @@
-import { createStore } from 'vuex'
+import { createStore } from "vuex";
+import settings from "./settings";
 
-export default createStore({
-  state: {
-    scores: JSON.parse(localStorage.getItem("scores")) || [],
+const store = createStore({
+  modules: {
+    settings,
   },
-  getters: {
+  state() {
+    return {
+      scores: JSON.parse(localStorage.getItem("scores")) || [],
+    };
   },
   mutations: {
     addScore(state, score) {
       state.scores.push(score);
       localStorage.setItem("scores", JSON.stringify(state.scores));
     },
+    incrementScore(state, payload) {
+      const player = state.scores.find((s) => s.id === payload.playerId);
+      if (player) {
+        player.score += payload.incrementPointsBy;
+        localStorage.setItem("scores", JSON.stringify(state.scores));
+      }
+    },
   },
-  actions: {
-  },
-  modules: {
-  }
 });
+
+export default store;
