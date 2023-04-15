@@ -22,3 +22,12 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+### How to deploy (currently)
+
+#### create branch 'gh-pages'
+
+git branch gh-pages "If not created yet"
+git checkout gh-pages
+npm run build
