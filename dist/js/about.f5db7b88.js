@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkscore_board_application"]=self["webpackChunkscore_board_application"]||[]).push([[443],{7381:function(a,n,r){r.r(n),r.d(n,{default:function(){return p}});var t=r(3396);const c={class:"about"},e=(0,t._)("h1",null,"This is an about page",-1),o=[e];function s(a,n){return(0,t.wg)(),(0,t.iD)("div",c,o)}var u=r(89);const i={},l=(0,u.Z)(i,[["render",s]]);var p=l}}]);
+//# sourceMappingURL=about.f5db7b88.js.map

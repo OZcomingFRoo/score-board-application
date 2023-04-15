@@ -1,0 +1,1 @@
+"use strict";(self["webpackChunkscore_board_application"]=self["webpackChunkscore_board_application"]||[]).push([[172],{9172:function(a,c,e){e.r(c)}}]);
