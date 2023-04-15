@@ -6,11 +6,6 @@
       <input class="w3-input w3-border" v-model="score" type="number" placeholder="Score" />
       <button class="w3-btn w3-block w3-blue">Add Score</button>
     </form>
-    <div class="w3-section">
-      <label>Increment Points By:</label>
-      <input class="w3-input w3-border" v-model.number="incrementBy" type="number" />
-        <!-- @input="updateIncrementPointsBy" /> -->
-    </div>
     <table class="w3-table-all w3-centered">
       <tr>
         <th>Player Name</th>

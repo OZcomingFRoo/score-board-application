@@ -1,24 +1,22 @@
 <template>
-  <div id="app">
-    <score-board></score-board>
+  <div id="app" class="w3-container w3-mobile">
+    <div class="w3-right">
+      <router-link to="/settings">
+        <i class="material-icons w3-large">settings</i>
+      </router-link>
+    </div>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import ScoreBoard from "./components/ScoreBoard.vue";
-
 export default {
-  components: {
-    ScoreBoard,
-  },
+  name: "App",
 };
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+body {
+  font-family: "Roboto", sans-serif;
 }
 </style>
